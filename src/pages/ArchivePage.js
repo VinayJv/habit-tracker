@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 export function ArchivePage(){
     const navigate = useNavigate();
-    const {archive, setArchive, habitsData} = useDataContext();
+    const {habitsData} = useDataContext();
     const clickHandler = (event) => {
         navigate(`/${event.target.id}`);
     }
@@ -11,7 +11,7 @@ export function ArchivePage(){
 
     return (<div className="landing-page-container">
         <h1>Archive Habits</h1>
-        {archive.length === 0 && <h2>No Archive Habit</h2>}
+        {archiveHabit.length === 0 && <h2>No Archive Habit</h2>}
         {archiveHabit.map((habit)=><div key={habit.name} className="habitCard" id={habit.name} onClick={clickHandler}>
                 <h4>{habit.name}</h4>
             </div>)}

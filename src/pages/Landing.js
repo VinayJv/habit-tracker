@@ -28,6 +28,7 @@ export function Landing(){
     }
     
     const unArchiveHabit = habitsData.filter((habit)=>habit.isArchive === false);
+    const archiveHabit = habitsData.filter((habit)=>habit.isArchive === true);
 
     return (<div className="landing-page-container">
         <h1>Habit Tracker</h1>
@@ -71,7 +72,7 @@ export function Landing(){
             </form>
         </div>
         <div>
-            <h1>Your Habits || <NavLink to="/archive">Archive Habits</NavLink>({archive.length}) </h1><span></span>
+            <h1>Your Habits || <NavLink to="/archive">Archive Habits</NavLink>({archiveHabit.length}) </h1><span></span>
             
             {habitsData.length === 0 ? <h2>No Habits Added</h2> : <div>{unArchiveHabit.map((habit)=><div key={habit.name} className="habitCard" id={habit.name} onClick={clickHandler}>
                 <h4>{habit.name}</h4>
