@@ -12,7 +12,6 @@ export function SingleHabitPage(){
     const [singleHabit, setSingleHabit] = useState(findHabit);
 
     const addToArchive = () => {
-        setArchive([...archive, findHabit]);
         const findIndex = habitsData.findIndex((habit)=>habit.name === habitName);
         sethabitsData([...habitsData], habitsData[findIndex].isArchive = !habitsData[findIndex].isArchive);
     }
