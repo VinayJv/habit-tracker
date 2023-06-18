@@ -9,6 +9,7 @@ export function ArchivePage(){
     }
     return (<div className="landing-page-container">
         <h1>Archive Habits</h1>
+        {archive.length === 0 && <h2>No Archive Habit</h2>}
         {archive.map((habit)=><div key={habit.name} className="habitCard" id={habit.name} onClick={clickHandler}>
                 <h4>{habit.name}</h4>
             </div>)}

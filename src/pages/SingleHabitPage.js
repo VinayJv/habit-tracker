@@ -43,15 +43,17 @@ export function SingleHabitPage(){
         setArchive(archive.filter((habit)=>habit.name !== habitName));
     }
 
-    return(<div className="landing-page-container">
-        <h1>{singleHabit.name}</h1>
-        <p>{singleHabit.repeat}</p>
-        <p>{singleHabit.goal}</p>
-        <p>{singleHabit.time}</p>
-        <p>{singleHabit.startDate}</p>
-        <button onClick={()=>setShowForm(!showForm)}>Edit</button>
-        <button onClick={deleteHabit}>Delete</button>
-        <button onClick={addToArchive} value={singleHabit.name}>{singleHabit.isArchive ? "In Archive" : "Archive"}</button>
+    return(<div className="single-page-container">
+        <h1>Habit Name: {singleHabit.name}</h1>
+        <h2>Repeat: {singleHabit.repeat}</h2>
+        <h3>Goal: {singleHabit.goal}</h3>
+        <h3>Time: {singleHabit.time}</h3>
+        <h3>Start Date: {singleHabit.startDate}</h3>
+        <div className="btn-container">
+            <button onClick={()=>setShowForm(!showForm)}>Edit</button>
+            <button onClick={deleteHabit}>Delete</button>
+            <button onClick={addToArchive} value={singleHabit.name}>{singleHabit.isArchive ? "In Archive" : "Archive"}</button>
+        </div>
         <form style={{display: showForm ? "flex" : "none" }} onSubmit={formHandler}>
                 <label>
                     Habit Name

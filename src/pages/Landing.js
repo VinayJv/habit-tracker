@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 
 export function Landing(){
-    const {habitsData, sethabitsData} = useDataContext();
+    const {habitsData, sethabitsData, archive } = useDataContext();
     const [displayForm,setDisplayForm] = useState(false);
     const navigate = useNavigate();
 
@@ -71,7 +71,7 @@ export function Landing(){
             </form>
         </div>
         <div>
-            <h1>Your Habits || <NavLink to="/archive">Archive Habits</NavLink> </h1><span></span>
+            <h1>Your Habits || <NavLink to="/archive">Archive Habits</NavLink>({archive.length}) </h1><span></span>
             
             {habitsData.length === 0 ? <h2>No Habits Added</h2> : <div>{unArchiveHabit.map((habit)=><div key={habit.name} className="habitCard" id={habit.name} onClick={clickHandler}>
                 <h4>{habit.name}</h4>
