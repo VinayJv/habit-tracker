@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router';
 import './App.css';
+import { Landing } from './pages/Landing';
+import { SingleHabitPage } from './pages/SingleHabitPage';
+import { ArchivePage } from './pages/ArchivePage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path='/' element={<Landing />}></Route>
+        <Route path='/archive' element={<ArchivePage />}></Route>
+        <Route path='/:habitName' element={<SingleHabitPage />}></Route>
+      </Routes>
     </div>
   );
 }
